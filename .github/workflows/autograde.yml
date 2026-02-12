@@ -1,6 +1,3 @@
-
-## `.github/workflows/autograde.yml`
-```yaml
 name: Autograde
 
 on:
@@ -10,12 +7,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
@@ -25,5 +21,4 @@ jobs:
           pip install numpy matplotlib pytest
 
       - name: Run tests
-        run: |
-          pytest
+        run: pytest
